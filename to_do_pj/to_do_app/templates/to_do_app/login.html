@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        font-family: Arial, sans-serif;
+      }
+
+      .form-container {
+        background-color: white;
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .error-message {
+        color: #b22222;
+      }
+
+      .input-box {
+        position: relative;
+        margin-bottom: 20px;
+      }
+
+      .input-box input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #f1f1f1;
+        font-size: 16px;
+      }
+
+      .input-box input:focus {
+        background: #eaeaea;
+      }
+
+      .btn {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background: #2575fc;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background: #1e60d1;
+      }
+
+      .switch-text {
+        margin-top: 20px;
+        font-size: 14px;
+      }
+
+      .switch-text a {
+        color: #2575fc;
+        text-decoration: none;
+      }
+
+      .switch-text a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Login</h2>
+      {% if messages %} {% for message in messages %}
+      <h2 class="error-message">{{message}}</h2>
+      {% endfor %} {% endif %}
+      <form action="" method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <input type="text" name="username" required placeholder="Username" />
+        </div>
+        <div class="input-box">
+          <input
+            type="password"
+            name="password"
+            required
+            placeholder="Password"
+          />
+        </div>
+        <button type="submit" class="btn">Login</button>
+        <p class="switch-text">
+          Don't have an account?
+          <a href="register">Register here</a>
+        </p>
+      </form>
+    </div>
+  </body>
+</html>
