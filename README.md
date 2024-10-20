@@ -31,3 +31,6 @@ A simple to-do list application built with Django that allows users to create, u
    git clone 
    cd to_do_pj
    python manage.py runserver
+   pip install -r requirements.txt
+   python manage.py migrate
+   python manage.py runserver
